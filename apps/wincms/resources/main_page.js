@@ -11,7 +11,7 @@ Wincms.mainPage = SC.Page.design({
   // Add childViews to this pane for views to display immediately on page 
   // load.
   mainPane: SC.MainPane.design({
-    childViews: 'labelView move'.w(),
+    childViews: 'labelView move aButton'.w(),
 
     labelView: SC.LabelView.design({
       layout: { centerX: 0, centerY: 0, width: 200, height: 18 },
@@ -19,10 +19,16 @@ Wincms.mainPage = SC.Page.design({
       tagName: "h1",
       value: "Welcome to SproutCore!"
     }),
+    aButton: SC.ButtonView.design({
+      buttonBehavior: SC.TOGGLE_BEHAVIOR,
+      title: "Press ME",
+      valueBinding: "Wincms.meme"
+
+    }),
     move: SC.PalettePane.design({
       layout: { centerX: 200, centerY: 0, width: 200, height: 200 },
       anchorLocation: SC.ANCHOR_BOTTOM,
-
+      isVisibleBinding: "Wincms.meme",
       contentView: SC.View.design({
         childViews: 'summaryView'.w(),
 
