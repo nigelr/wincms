@@ -24,5 +24,10 @@ Wincms = SC.Application.create(
   
   // TODO: Add global constants or singleton objects needed by your app here.
 
-  meme: NO
+  showWindow: YES,
+  showWindow2: YES,
+
+  showWindowMore: function() {
+    return this.get('showWindow') && this.get('showWindow2');
+  }.property('showWindow', 'showWindow2').cacheable()
 }) ;
